@@ -1,15 +1,16 @@
-import React from 'react';
-import Base from './base';
+import { Panel } from './panel';
+import Boton from './boton';
 
-function App() {
+const App = () => {
+  
+
   return (
     <div>
-      <Base 
-        nombre = "Jose"/>
-      <Base 
-        nombre = "David"/>
+      <Panel/>
+      <Boton 
+      numeros = {10}/>
     </div>
   );
-}
+};
 
 export default App
