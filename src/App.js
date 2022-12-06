@@ -1,20 +1,15 @@
-import React from "react";
-import { modal_inicio } from "./modal";
-// import './App.css';
+import React from 'react';
+import Base from './base';
 
 function App() {
   return (
     <div>
-    <header>
-      <button>
-        Menu principal
-      </button>
-      <p>
-        Hola
-      </p>
-    </header>
+      <Base 
+        nombre = "Jose"/>
+      <Base 
+        nombre = "David"/>
     </div>
-    )
+  );
 }
 
-export default App;
+export default App
