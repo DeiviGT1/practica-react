@@ -1,11 +1,15 @@
 import "./button.css"
 
-function Button ({ texto, tipoDeBoton, manejoClic }) {
+function Button(props){
+    const esNumero = (valor) =>{
+        return valor >= 0;
+    }
+
     return(
-        <button 
-        className={ tipoDeBoton ? "boton-click" : "boton-reiniciar" }
-        onClick = {manejoClic} >
-            {texto}</button>
+        <div className={`es-numero${esNumero(props.children) ? "" : "-operador"}`}>
+            <button
+            onClick={props.setNumero}>{props.children}</button>
+        </div>
     )
 }
 

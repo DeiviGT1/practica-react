@@ -3,10 +3,34 @@
     color: #dfdfdf;
 }  
 
-.botones{
-    position: absolute;
-    width: 20%;
-    height: 50%;
-    left: 40%;
-    margin-top: 3%;
+.calculadora{
+    position: relative;
+    left: 35%;
+    width: 30%;
+    background-color: #6b6b6b;
+    height: 100%;
+    border: 10px solid #6b6b6b;
+    border-radius: 10px;
+}
+
+.teclado{   
+    background-color: #6b6b6b;
+    height: 100%;
+}
+
+.fila{
+    display:flex;
+    width: 90%;
+    position: relative;
+    left: 4%;
+    background-color: #6b6b6b;
+}
+
+.clear{
+    height: 5rem;
+    width: 100%;
+    background-color: rgb(60, 60, 60);
+    height: 70px;
+    width: 100%;
+    border-radius: 15px;
 }
