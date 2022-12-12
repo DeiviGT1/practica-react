@@ -3,9 +3,8 @@ import "./App.css"
 import { Header } from "./header"
 import { Panel } from "./panel"
 import { Button } from "./button";
-import { useState } from "react"
-
-  
+import { useState } from "react";
+import { evaluate } from "mathjs"
 
 const App = () => {
   const [valorActual, setValor] = useState(0);
@@ -20,50 +19,8 @@ const App = () => {
     else {setValor( valorActual.toString() + valor.toString() )}
   }
 
-  const setOperador = () => {
-    if (valorActual.indexOf("+") !== -1) {
-
-      function sumArray(arr) {
-        return arr.reduce(function(acc, val) {
-          return parseFloat(acc) + parseFloat(val);
-        }, 0);
-      };
-      let arr = valorActual.split("+");
-      setValor( sumArray(arr) )
-    }
-
-    else if (valorActual.indexOf("-") !== -1) {
-
-      function sumArray(arr) {
-        return arr.reduce(function(acc, val) {
-          return   - (parseFloat(acc) + parseFloat(val));
-        }, 0);
-      };
-      let arr = valorActual.split("-");
-      setValor( sumArray(arr) )
-    }
-    else if (valorActual.indexOf("*") !== -1) {
-
-      function sumArray(arr) {
-        return arr.reduce(function(acc, val) {
-  
-          return parseFloat(acc) * parseFloat(val);
-        }, 1);
-      };
-      let arr = valorActual.split("*");
-      setValor( sumArray(arr) )
-    }
-    else if (valorActual.indexOf("/") !== -1) {
-
-      function sumArray(arr) {
-        return arr.reduce(function(acc, val) {
-          return parseFloat(acc) / parseFloat(val);
-        });
-      };
-      let arr = valorActual.split("/");
-      setValor( sumArray(arr) )
-    }
-    else {setValor(valorActual)}
+  const setOperador = (val) => {
+    setValor( valorActual + val );
   }
 
   const setClear = () =>{
