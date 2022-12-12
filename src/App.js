@@ -20,7 +20,11 @@ const App = () => {
   }
 
   const setOperador = (val) => {
-    setValor( valorActual + val );
+    if (valorActual !== 0) {
+      setValor(evaluate(valorActual))
+    } else{
+      alert ("Por favor ingrese valores para realizar los calculos.")
+    };
   }
 
   const setClear = () =>{
@@ -61,9 +65,9 @@ const App = () => {
           <div className="fila">
             <button 
             className="clear"
-            onClick={setClear}>Clear</button>
-          </div>
-        </div>
+            onClick={setClear}>clear</button>
+          </div> 
+        </div> 
       </div>
     </div>
   )
