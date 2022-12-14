@@ -1,0 +1,16 @@
+form{
+    background-color: antiquewhite;
+    padding-left: 5rem;
+    padding-bottom: 2rem;
+}
+
+.tarea-input{
+    background-color: antiquewhite;
+    width: 12rem;
+}
+
+form button{
+    color: aquamarine;
+    width: 9rem;
+    margin-left: 1rem;
+}

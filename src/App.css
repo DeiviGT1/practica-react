@@ -5,20 +5,18 @@
 
 .campo-todo{
     background-color: antiquewhite;
-    height: 25rem;
+    height: auto;
     width: 40%;
     position: relative;
     left: 30%;
+    padding: 40px;
 }
 
 .intro{
     background-color: antiquewhite;
-    padding-top: 5%;
-    padding-bottom: 5%;
     text-align: center;
     font-size: 24px;
     width: 90%;
     position: relative;
     left: 5%;
-    top: 5%;
 }

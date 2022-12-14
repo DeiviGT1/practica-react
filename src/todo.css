@@ -1,17 +1,50 @@
-.todo{
+.tarea-contenedor{
     position: relative;
-    left: 10%;
-    width: 80%;
-    background-color: red;
+    left: 2.5%;
+    width: 95%;
     display: flex;
+    margin-bottom: 10px;
+    
 }
 
-.todo p{
+.tarea-lista-contenedor{
+    background-color: antiquewhite;
+}
+
+.item-todo{
+    padding-left: 2rem;
+    width: 80%;
+    height: 3rem;
+    width: 500px;
+    padding: 8px 15px 8px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+    cursor: pointer; 
     color: antiquewhite;
-    margin-left: 2rem;
 }
 
-.todo input{
+.tarea-contenedor button{
     margin-left: auto;
+    height: 1rem;
+    margin-top: 1rem;
+    background-color: antiquewhite;
     margin-right: 2rem;
 }
+
+.tarea-contenedor:nth-child(3n+1){
+    background-color: gray;
+}
+
+.tarea-contenedor:nth-child(3n+2){
+    background-color: rgb(81, 81, 81);
+}
+
+.tarea-contenedor:nth-child(3n+3){
+    background-color: rgb(56, 56, 56);
+}
+
+.tarea-contenedor.completada div{
+    background-color: #5a01a7;
+    text-decoration: line-through;
+  }
