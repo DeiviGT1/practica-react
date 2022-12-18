@@ -1,8 +1,8 @@
 import "./formulario.css"
-import {useState} from "react"
+import React, { useState } from "react"
 import { v4 as uuidv4 } from "uuid"
 
-function Formualario ( props ) {
+function Formualario ( { onSubmit, eliminarTarea } ) {
     const [input, setInput] = useState("")
 
     const manejoCambio = (event) => {
@@ -17,8 +17,10 @@ function Formualario ( props ) {
             completada : false
         }
 
-        props.onSubmit(tareaNueva);
+        onSubmit(tareaNueva);
     }
+
+    
 
     return(
         <form
@@ -30,7 +32,7 @@ function Formualario ( props ) {
                 onChange={manejoCambio}
             />
             <button className="tarea-boton"
-            onClick={props.eliminarTarea}>
+            onClick={eliminarTarea}>
                 Agregar tarea
             </button>
         </form>

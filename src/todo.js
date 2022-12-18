@@ -1,15 +1,20 @@
 import "./todo.css"
+import React, {useContext}  from "react"
+import { ProviderContext } from "./context"
 
-function Todo( props ){
+function Todo( {completada, completarTarea, eliminarTarea, texto} ){
+    const context = useContext(ProviderContext);
+    console.log(context)
+
     return(
-        <div className={props.completada ? "tarea-contenedor completada" : "tarea-contenedor"}>
+        <div className={completada ? "tarea-contenedor completada" : "tarea-contenedor"}>
             <div className="item-todo"
-            onClick={() => props.completarTarea()}>
-                { props.texto }
+            onClick={() => completarTarea()}>
+                {context}
             </div>
             
             <button
-            onClick={() => props.eliminarTarea()}
+            onClick={() => eliminarTarea()}
             ></button>
         </div>
     )

@@ -1,37 +1,60 @@
 import {Formualario} from "./formulario"
 import {Todo} from "./todo"
-import { useState } from "react"
+import React, { useContext, useState } from "react"
 
-function ListaDeTareas ( { texto, completada } ) {
-    const [tareas, setTareas] = useState([]);
+// JSON.stringify convierte objeto en texto
+// JSON.parse convierte texto en objeto
+
+function ListaDeTareas ( ) {
+
+    const localStorageActual = localStorage.getItem("TAREAS_V1");
+    let parsedTareas;
+
+    if (!localStorageActual) {
+        localStorage.setItem("TAREAS_V1", JSON.stringify("[]"));
+        parsedTareas = []
+    } else {
+        parsedTareas = JSON.parse(localStorageActual)
+    }
+
+    const [tareas, setTareas] = useState(parsedTareas);
+
+    const saveTareas = (tareasActuales) => {
+        localStorage.setItem("TAREAS_V1", JSON.stringify(tareasActuales))
+        setTareas(tareasActuales)
+    }
 
     const agregarTarea = (tarea) =>{
         if ( tarea.texto.trim()) {
             tarea.texto = tarea.texto.trim()
             const tareasActuales = [tarea, ... tareas];
-            setTareas(tareasActuales)
+            saveTareas(tareasActuales);
         }
     }
 
     const eliminarTarea = (id) => {
-        console.log(id)
         const tareasActuales = tareas.filter(tarea => tarea.id !== id);
-        setTareas(tareasActuales)
+        saveTareas(tareasActuales);
     }
 
     const completarTarea = (id) =>{
         
         const tareasActuales = tareas.map(tarea=>{
             if (tarea.id == id){
-                console.log(tarea.completada)
                 //invierte el estado de la tarea cuando encuentra el id buscado
                 tarea.completada = !tarea.completada;
-                console.log(tarea.completada)
             }
             return tarea
         });
-        setTareas(tareasActuales)
+
+        saveTareas(tareasActuales);
     }
+
+    // Lo que está dentro de la funcion se ejecuta cuando se termina de renderizar
+    // Se ejecutará el useEffect solamente cuando se ejecute alguna de las funcioes del segundo argumento
+    React.useEffect(() => {
+        // console.log("HOLA")
+    }, []);
 
     return(
         <>
@@ -53,6 +76,7 @@ function ListaDeTareas ( { texto, completada } ) {
                 }
             </div>
         </>
+        
     )
 }
 
